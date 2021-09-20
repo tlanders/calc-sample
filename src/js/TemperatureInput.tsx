@@ -1,4 +1,5 @@
 import React from "react";
+import {TempChangeHandler} from "./Calculator";
 
 enum ScaleNames {
     CELSIUS = 'Celsius',
@@ -6,7 +7,7 @@ enum ScaleNames {
 };
 
 type Props = {
-    onTemperatureChange: (temp: string) => void,
+    onTemperatureChange: TempChangeHandler,
     temperature: string,
     scale: string
 };

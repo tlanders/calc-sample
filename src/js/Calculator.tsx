@@ -2,13 +2,16 @@ import React, {useState} from "react";
 import BoilingVerdict from "./BoilingVerdict";
 import TemperatureInput from "./TemperatureInput";
 
-const Calculator = (props) => {
-    const handleCelsiusChange = (temperature) => {
+export type TempChangeHandler = (temp: string) => void;
+export type TempConverterFunction = (temp: number) => number;
+
+const Calculator: React.FC<Object> = () => {
+    const handleCelsiusChange: TempChangeHandler = (temperature) => {
         setTemperature(temperature);
         setScale('c');
     }
 
-    const handleFahrenheitChange = (temperature) => {
+    const handleFahrenheitChange: TempChangeHandler = (temperature) => {
         setTemperature(temperature);
         setScale('f');
     }
@@ -37,15 +40,15 @@ const Calculator = (props) => {
     );
 }
 
-const toCelsius = (fahrenheit) => {
+const toCelsius: TempConverterFunction = (fahrenheit: number) => {
     return (fahrenheit - 32) * 5 / 9;
 }
 
-const toFahrenheit = (celsius) => {
+const toFahrenheit: TempConverterFunction = (celsius: number) => {
     return (celsius * 9 / 5) + 32;
 }
 
-const tryConvert = (temperature, convert) => {
+const tryConvert = (temperature: string, convert: TempConverterFunction) => {
     const input = parseFloat(temperature);
     if (Number.isNaN(input)) {
         return '';
