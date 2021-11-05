@@ -34,8 +34,9 @@ const Calculator: React.FC<Object> = () => {
                 temperature={fahrenheit}
                 onTemperatureChange={handleFahrenheitChange} />
 
-            <BoilingVerdict
-                celsius={parseFloat(celsius)} />
+            <BoilingVerdict celsius={parseFloat(celsius)}>
+                <p><i>&dagger;This is a footnote</i></p>
+            </BoilingVerdict>
         </div>
     );
 }

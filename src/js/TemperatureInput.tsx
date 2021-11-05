@@ -12,8 +12,10 @@ type Props = {
     scale: string
 };
 
+type ChangeEventHandler = (e: React.ChangeEvent<HTMLInputElement>) => void;
+
 const TemperatureInput: React.FC<Props> = ({onTemperatureChange, temperature, scale}) => {
-    const handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e) => {
+    const handleChange: ChangeEventHandler = (e) => {
         onTemperatureChange(e.target.value);
     }
 

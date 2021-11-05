@@ -2,15 +2,18 @@ import React from "react";
 
 type Props = {
     celsius: number,
+    children: JSX.Element
 }
 
-const BoilingVerdict = ({celsius} : Props) => {
+const BoilingVerdict = ({celsius, children} : Props) => {
     console.log('celsius: ', celsius);
-    if (celsius >= 100) {
-        return <p>The water would boil.</p>;
-    } else {
-        return <p>The water would not boil.</p>;
-    }
+    const message = (celsius >= 100) ? (<p>The water would boil.</p>) : (<p>The water would not boil.</p>);
+    return (
+        <>
+            {message}
+            {children}
+        </>
+    );
 }
 
 export default BoilingVerdict;
